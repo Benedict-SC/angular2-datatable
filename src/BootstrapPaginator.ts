@@ -10,6 +10,9 @@ import * as _ from "lodash";
             <li class="page-item" [class.disabled]="p.activePage <= 1" (click)="p.setPage(1)">
                 <a class="page-link" style="cursor: pointer">&laquo;</a>
             </li>
+            <li class="page-item" [class.disabled]="p.activePage <= 1" (click)="p.setPage(p.activePage-5 > 1 ? p.activePage-5 : 1)">
+                <a class="page-link" style="cursor: pointer">&lsaquo;</a>
+            </li>
             <li class="page-item" *ngIf="p.activePage > 4 && p.activePage + 1 > p.lastPage" (click)="p.setPage(p.activePage - 4)">
                 <a class="page-link" style="cursor: pointer">{{p.activePage-4}}</a>
             </li>
@@ -36,6 +39,9 @@ import * as _ from "lodash";
             </li>
             <li class="page-item" *ngIf="p.activePage + 4 <= p.lastPage && p.activePage < 2" (click)="p.setPage(p.activePage + 4)">
                 <a class="page-link" style="cursor: pointer">{{p.activePage+4}}</a>
+            </li>
+            <li class="page-item" [class.disabled]="p.activePage >= p.lastPage" (click)="p.setPage(p.activePage+5 < p.lastPage ? p.activePage+5 : p.lastPage)">
+                <a class="page-link" style="cursor: pointer">&rsaquo;</a>
             </li>
             <li class="page-item" [class.disabled]="p.activePage >= p.lastPage" (click)="p.setPage(p.lastPage)">
                 <a class="page-link" style="cursor: pointer">&raquo;</a>
